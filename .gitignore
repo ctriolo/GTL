@@ -1,3 +1,14 @@
+#################
+## Respository
+#################
+GTL/keys.cs
+
+#################
+## Backup/Hidden
+#################
+.*
+\#*\#
+*~
 
 #################
 ## Eclipse
@@ -66,7 +77,7 @@ local.properties
 **/*.dotCover
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
-**/packages/ 
+packages/
 
 # Visual C++ cache files
 ipch/
