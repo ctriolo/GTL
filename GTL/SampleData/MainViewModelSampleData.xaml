@@ -1,0 +1,82 @@
+﻿<local:MainViewModel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:GTL" 
+    SampleProperty="Sample Text Property Value">
+    <local:MainViewModel.Categories>
+        <local:CategoryViewModel Name="gym">
+            <local:CategoryViewModel.Venues>
+                <local:VenueViewModel
+                    Name="BroGym with a Really Long Name"
+                    NameCaps="BRO GYM WITH A REALLY LONG NAME"
+                    Distance="21.5"
+                    Address="1245 Bro Street"
+                    City="Bro York City"
+                    State="Bro York"
+                    CityState="Bro York City, Bro York"
+                    Country="Bronited States"
+                    Picture="https://foursquare.com/img/categories/building/gym_88.png"
+                 />
+                 <local:VenueViewModel
+                    Name="Best Gym for getting swell"
+                    NameCaps="BRO GYM WITH A REALLY LONG NAME"
+                    Distance="30"
+                    Address="1245 Bro Street"
+                    City="Bro York City"
+                    State="Bro York"
+                    CityState="Bro York City, Bro York"
+                    Country="Bronited States"
+                    Picture="https://foursquare.com/img/categories/building/gym_88.png"
+                 />
+                 <local:VenueViewModel
+                    Name="Fitness Center"
+                    NameCaps="BRO GYM WITH A REALLY LONG NAME"
+                    Distance="50"
+                    Address="1245 Bro Street"
+                    City="Bro York City"
+                    State="Bro York"
+                    CityState="Bro York City, Bro York"
+                    Country="Bronited States"
+                    Picture="https://foursquare.com/img/categories/building/gym_88.png"
+                  />
+            </local:CategoryViewModel.Venues>
+        </local:CategoryViewModel>
+
+        <local:CategoryViewModel Name="laundry">
+                <local:CategoryViewModel.Venues>
+                    <local:VenueViewModel
+                    Name="BroLaundry with a Really Long Name"
+                    NameCaps="BRO GYM WITH A REALLY LONG NAME"
+                    Address="1245 Bro Street"
+                    City="Bro York City"
+                    State="Bro York"
+                    CityState="Bro York City, Bro York"
+                    Country="Bronited States"
+                    Picture="https://foursquare.com/img/categories/building/gym_88.png"
+                 />
+                    <local:VenueViewModel
+                    Name="Best laundry for getting swell"
+                    NameCaps="BRO GYM WITH A REALLY LONG NAME"
+                    Address="1245 Bro Street"
+                    City="Bro York City"
+                    State="Bro York"
+                    CityState="Bro York City, Bro York"
+                    Country="Bronited States"
+                    Picture="https://foursquare.com/img/categories/building/gym_88.png"
+                 />
+                    <local:VenueViewModel
+                    Name="Laundry"
+                    NameCaps="BRO GYM WITH A REALLY LONG NAME"
+                    Address="1245 Bro Street"
+                    City="Bro York City"
+                    State="Bro York"
+                    CityState="Bro York City, Bro York"
+                    Country="Bronited States"
+                    Picture="https://foursquare.com/img/categories/building/gym_88.png"
+                  />
+            </local:CategoryViewModel.Venues>
+        </local:CategoryViewModel>
+    </local:MainViewModel.Categories>
+    
+    
+</local:MainViewModel>

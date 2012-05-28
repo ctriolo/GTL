@@ -1,0 +1,26 @@
+﻿<local:VenueViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:GTL" 
+    Name="BroGym with a Really Long Name"
+    NameCaps="BRO GYM WITH A REALLY LONG NAME"
+    Address="1245 Bro Street"
+    City="Bro York City"
+    State="Bro York"
+    CityState="Bro York City, Bro York"
+    Country="Bronited States"
+    Picture="https://foursquare.com/img/categories/building/gym_88.png">
+    <local:VenueViewModel.Tips>
+        <local:TipViewModel User="Cupcake" Photo="https://is1.4sqi.net/userpix_thumbs/DGMIH5BEDTE0VYXR.jpg" Text="Cupcake ipsum dolor sit amet cake donut. Pastry jelly beans chocolate cake faworki gingerbread caramels lemon drops candy canes oat cake."/>
+        <local:TipViewModel User="Pie" Photo="https://is1.4sqi.net/userpix_thumbs/DGMIH5BEDTE0VYXR.jpg" Text="Cupcake ipsum dolor sit amet cake donut. Pastry jelly beans chocolate cake faworki gingerbread caramels lemon drops candy canes oat cake."/>
+        <local:TipViewModel User="Cake" Photo="https://is1.4sqi.net/userpix_thumbs/DGMIH5BEDTE0VYXR.jpg" Text="Cupcake ipsum dolor sit amet cake donut. Pastry jelly beans chocolate cake faworki gingerbread caramels lemon drops candy canes oat cake."/>
+    </local:VenueViewModel.Tips>
+    <local:VenueViewModel.Photos>
+        <local:PhotoViewModel Photo="https://is1.4sqi.net/pix/jeNDdBVvfWmRJe00Lf45erFgTj2kUkzCcoRb0CrAZVs.jpg" />
+        <local:PhotoViewModel Photo="https://is1.4sqi.net/pix/QJ-ivCrFLLfbZg7t6IHLUOMkeS0aRs7TfAhG7uM3QLQ.jpg" />
+        <local:PhotoViewModel Photo="https://is0.4sqi.net/pix/Y0Hkb8A-GMYnYFo604tA9h3dgjZlpba3XW6ukYqBHC8.jpg" />
+        <local:PhotoViewModel Photo="https://is0.4sqi.net/pix/aFxNRP0LZP4aTlp4PxmAv_nSrgD2-LggBwuOCgKyEBo.jpg" />
+        <local:PhotoViewModel Photo="https://is0.4sqi.net/pix/VSm2LRFoYj9oWPSZWRWZ6ndGy989bw9WiH5eDCLrMbk.jpg" />
+        <local:PhotoViewModel Photo="https://is1.4sqi.net/pix/xBaY7Sjb6EKIpLx0rKn-Dhzad1rrRq5J662d4srj30s.jpg" />
+    </local:VenueViewModel.Photos>
+</local:VenueViewModel>    

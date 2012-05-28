@@ -1,0 +1,149 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="GTL.CategoriesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <StackPanel>
+            <controls:Pivot
+                Title="GTL"
+                Margin="0,0,0,0"
+                Name="CategoriesPivot"
+                ItemsSource="{Binding Categories}">
+
+                <controls:Pivot.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </controls:Pivot.HeaderTemplate>
+
+                <controls:Pivot.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <my:Map
+                                CredentialsProvider="{Binding KEYS.BING_MAPS_CREDENTIALS}"
+                                Height="240"
+                                Width="480"
+                                HorizontalAlignment="Left" 
+                                Name="map" 
+                                VerticalAlignment="Top" 
+                                Margin="-12,-12,-12,0"
+                                ZoomLevel="11"
+                                Center="{Binding Location}"
+                                IsHitTestVisible="False">
+                                <my:MapLayer>
+                                    <my:MapItemsControl ItemsSource="{Binding Venues}">
+                                        <my:MapItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <my:Pushpin Location="{Binding Location}">
+                                                    <Image Source="{Binding Icon}"
+                                                       Opacity="1"
+                                                       Stretch="None"
+                                                     />
+                                                    <!--TextBlock Text="{Binding Name}"/-->
+                                                </my:Pushpin>
+                                                <!--" Image Source="{Binding Icon}"
+                                                       Opacity=".8"
+                                                       Stretch="None"
+                                                       my:MapLayer.PositionOrigin="Center"
+                                                       my:MapLayer.Position="{Binding Location}"
+                                                /-->
+                                            </DataTemplate>
+                                        </my:MapItemsControl.ItemTemplate>
+                                    </my:MapItemsControl>
+                                    <my:Pushpin Location="{Binding Location}" Background="{StaticResource PhoneAccentBrush}">
+                                        <TextBlock Text="you"/>
+                                    </my:Pushpin>
+                                    <!--Image Source="http://foursquare.com/img/categories/building/medical_ems.png" 
+                                           Opacity=".8"
+                                           Stretch="None"
+                                           my:MapLayer.PositionOrigin="Center"
+                                           my:MapLayer.Position="{Binding Location}"    
+                                    / -->
+                                </my:MapLayer>
+
+                            </my:Map>
+
+                            <ListBox Margin="0,0,-12,0" Height="380" ItemsSource="{Binding Venues}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel
+                                            Tag="{Binding Id}"
+                                            Tap="Select"
+                                            Width="456"
+                                            Margin="0,24,0,0">
+                                            <TextBlock
+                                                    Text="{Binding Name}"
+                                                    TextTrimming="WordEllipsis"
+                                                    TextWrapping="NoWrap"
+                                                    Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                                />
+                                            <StackPanel
+                                                Orientation="Horizontal"
+                                                Margin="0,0,0,0">
+                                                <Image 
+                                                    VerticalAlignment="Bottom"
+                                                    HorizontalAlignment="Right"
+                                                    Height="48"
+                                                    Width="48"
+                                                    Source="{Binding Picture}"
+                                                    Margin="12,0,12,0"
+                                                />
+                                                <StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Address, StringFormat='\{0\}, '}"
+                                                                   Margin="0,0,0,0"
+                                                                   TextWrapping="NoWrap" 
+                                                                   Style="{StaticResource PhoneTextAccentStyle}"
+                                                        />
+                                                        <TextBlock Text="{Binding City}"
+                                                                   Margin="0,0,0,0"
+                                                                   TextTrimming="WordEllipsis"
+                                                                   TextWrapping="NoWrap"
+                                                                   Style="{StaticResource PhoneTextAccentStyle}"
+                                                        />
+                                                    </StackPanel>
+                                                    <TextBlock Text="{Binding Distance, StringFormat='\{0\} meters'}" TextWrapping="Wrap" Margin="0,0,12,0" Style="{StaticResource PhoneTextSmallStyle}"/>
+                                                </StackPanel>
+
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </controls:Pivot.ItemTemplate>
+
+            </controls:Pivot>
+        </StackPanel>
+    </Grid>
+
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="appbar_button1" IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_button2" IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItem1" Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem x:Name="menuItem2" Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,103 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="GTL.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="728" 
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False" xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI" xmlns:my1="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <!--Panorama control-->
+        
+            <!--
+            <controls:Panorama.Background>
+                <ImageBrush ImageSource="PanoramaBackground.png"/>
+            </controls:Panorama.Background>
+            -->
+
+            <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
+                <!--Double line list with image placeholder and text wrapping-->
+                <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        Name="TITLE"
+                        Text="gtl"
+                        Margin="-12,-48,0,17"
+                        FontSize="204"
+                        Style="{StaticResource PhoneTextExtraLargeStyle}"
+                     />
+            <my1:Map 
+                        CredentialsProvider="{Binding KEYS.BING_MAPS_CREDENTIALS}"
+                        Name="Map"
+                        Grid.Row="0" 
+                        HorizontalAlignment="Left" 
+                        Margin="0,0,0,0" 
+                        VerticalAlignment="Top" Height="420" Width="480"
+                    >
+                <my1:Pushpin Background="{StaticResource PhoneAccentBrush}"  Location="{Binding Location}" />
+            </my1:Map>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                                Name="GYM"
+                                Text="gym"
+                                TextWrapping="Wrap"
+                                Margin="0,0,0,17"
+                                Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                Tap="SeeMore_Tap"
+                                Grid.Column ="0"
+                                Grid.Row="0"
+                             />
+                <TextBlock 
+                    HorizontalAlignment="Center"
+                                Name="TAN"
+                                Text="tan" 
+                                TextWrapping="Wrap"
+                                Margin="0,0,0,17"
+                                Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                Tap="SeeMore_Tap"
+                                Grid.Column ="1"
+                                Grid.Row="0"
+
+                                />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                                Name="LAUNDRY"
+                                Text="laundry"
+                                TextWrapping="Wrap"
+                                Margin="0,0,0,17"
+                                Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                Tap="SeeMore_Tap"
+                                Grid.Column ="2"
+                                Grid.Row="0"
+
+                            />
+            </Grid>
+        </StackPanel>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton Click="Refresh_Click" IconUri="/Images/appbar.refresh.rest.png" Text="Refresh"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>
